@@ -1,10 +1,8 @@
-def bakery_sale(loaves):
-    regular_price=185*loaves
-    discount=0.6*regular_price
-    total_price=regular_price-discount
-    return regular_price,discount,total_price
-loaves=int(input("entre the number of loaes of day old bread:"))
-regular_price,discount,total_price=bakery_sale(loaves)
-print("regular price:{:.2f}rupees",format(regular_price))
-print("discount:{:.2f}rupees",format(discount))
-print("total_price:{:.2f}rupees",format(total_price))
+def calculate (self, s):
+    s = s. replace (" ", "")
+    pn = [1 if c=="+" else -1 for c in s if c in "+-"]
+    sList = [self.cal (c) for c in s.replace ("-", "+").split ("+")]
+    return sList[0] + sum ([sList [i+1]*pn[i] for i in xrange (len (pn))])
+def cal (self, s) :
+    if "*" not in s and "/" not in s:
+        return int (s)

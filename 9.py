@@ -1,11 +1,19 @@
-time=int(input("enter the number of time slots:"))
-entry=[int(input("enter the number of guests entring at time slot{}:".format(i+1)))for i in range(time)]
-exit=[int(input("enter the number of gustes exiting at time slot{}:".format(i+1)))for i in range(time)]
-
-count=0
-gustes=[]
-for i in range(len(entry)):
-    count=count+entry[i]-exit[i]
-    gustes.append(count)
-
-print("the maximum number of gustes present at any time:",max(gustes))
+month=input ("enter the month:")
+day=int (input ("enter the day:"))
+if month in ('january', 'february', 'march'):
+    season='winter'
+elif month in ('april', 'may', 'june'):
+    season=' summer'
+elif month in ('july', 'august', 'september'):
+    season='spring'
+else:
+    season=' fall'
+if (month=='march') and (day>1):
+    season='summer'
+elif (month=='june')and (day>1) :
+    season='spring'
+elif (month==' september') and (day> 1) :
+    season='fall'
+elif (month=='december ') and (day>1) :
+    season='winter'
+print ("season is", season)

@@ -1,13 +1,16 @@
-def max_area(height):
-    left, right = 0, len(height) - 1
-    max_area = 0
-    while left < right:
-        max_area = max(max_area, min(height[left], height[right]) * (right - left))
-        if height[left] < height[right]:
-            left += 1
-        else:
-            right -= 1
-    return max_area
-height = [int(x) for x in input("Enter the heights of the lines separated by space: ").split()]
-result = max_area(height)
-print("The maximum area that can be contained is:", result)
+class solution:   
+    def lettercobinations (self, digits) :    
+        if (len (digits)==0) :        
+            return []      
+        digit2char = {'1': '', '2':'abc', '3':'def',
+                      '4': 'ghi','5': 'ikl', '6': 'mno',
+                      '7':'pqrs','8':'tuv','9':'wxyz','0':''}      
+        resus = ['']      
+        for d in digits:           
+            tem= []            
+            for c in digit2char[d]: 
+                tem = tem=[r+c for r in resus]   
+            resus = tem 
+        return resus
+ob = solution ()
+print (ob.lettercobinations ('34'))

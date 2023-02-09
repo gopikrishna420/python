@@ -1,12 +1,8 @@
-def is_happy(n):
-    seen=set()
-    while n!=1 and n not in seen:
-        seen.add(n)
-        n=sum(int(d)**2 for d in str(n))
-    return n==1
-n=int(input("entre a positive integer:"))
-result=is_happy(n)
-if result:
-    print("the numberis a happy number.")
-else:
-    print("the number is not a happy number")
+def maxWords(sentences):
+    max_words=0
+    for sentence in sentences:
+        words= sentence.split()
+        max_words=max(max_words,len(words))
+    return max_words
+sentences=["A sentence is alist of words"]
+print("The maximum number of words in a single sentence is", maxWords (sentences))
