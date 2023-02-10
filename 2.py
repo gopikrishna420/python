@@ -1,13 +1,12 @@
-year = int (input("Enter year: "))
-if year % 4 == 0:
-     
-    if year % 100 == 0:
-         
-        if year % 400 == 0:
-            print (year,"is a leap year.")
-        else:
-            print (year, "is not a leap year.")
-    else:
-        print (year,"is a leap year.")
-else:
-    print(year, "is not a leap year.")
+a=int(input("Enter first number:"))
+b=int(input("Enter second number:"))
+c=int(input("Enter third number:"))
+d= []
+d.append (a)
+d.append (b)
+d.append (c)
+for i in range (0,3) :
+    for j in range (0,3):
+        for k in range (0,3):
+            if (i!=j&j!=k&k!=i):
+                print (d[i],d[i],d[k])

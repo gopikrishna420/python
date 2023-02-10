@@ -1,18 +1,15 @@
-A = list (map (int, input ("Enter a list of numbers separated by space: ").strip() .strip() .split ()))
-B = list (map (int, input ("Enter a list of numbers separated by space: ").strip () .strip ().split ()))
-print ("The list 1 is :"+ str (A))
-print ("The list 2 is:"+ str (B))
-size_1 = len (A)
-size_2 = len (B)
-res = []
-i, j = 0,0
-while i < size_1 and j < size_2:
-    if A[i]<B[i]:
-        res. append (A[i])
-        i += 1
-    else:
-        res.append (B[j])
-        j += 1
-res = res + A[i:] + B[i:]
-print ("The combined sorted list is : " + str (res))
+def add_binary_nums(x,y):
+    max_len = max(len(x),len(y))
+    x = x.zfill (max_len)
+    y = y.zfill (max_len)
+    result =''
+    carry = 0
+    for i in range (max_len - 1, -1,-1) :
+        r = carry + (1 if x[i]== '1' else 0) + (1 if y[i] == '1' else 0)
+        result = ('1' if r % 2 == 1 else '0') + result
+        carry = r // 2
+    if carry != 0:
+        result = '1' + result
+    return result.zfill (max_len)
 
+print (add_binary_nums('1101','100'))

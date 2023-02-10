@@ -1,8 +1,10 @@
-def maxWords(sentences):
-    max_words=0
-    for sentence in sentences:
-        words= sentence.split()
-        max_words=max(max_words,len(words))
-    return max_words
-sentences=["A sentence is alist of words"]
-print("The maximum number of words in a single sentence is", maxWords (sentences))
+def solve (nums):
+    count=0
+    n=len (nums)
+    for i in range (n):
+        for j in range (i+1,n):
+            if nums [i] == nums [j]:
+                count+=1
+    return count
+nums =list(map(int,input("enter the number=").strip().split()))
+print (solve(nums))

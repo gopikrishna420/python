@@ -1,8 +1,12 @@
-def calculate (self, s):
-    s = s. replace (" ", "")
-    pn = [1 if c=="+" else -1 for c in s if c in "+-"]
-    sList = [self.cal (c) for c in s.replace ("-", "+").split ("+")]
-    return sList[0] + sum ([sList [i+1]*pn[i] for i in xrange (len (pn))])
-def cal (self, s) :
-    if "*" not in s and "/" not in s:
-        return int (s)
+def minjump(nums):
+    jumps = 0
+    current_jump_end = 0
+    far = 0
+    for i in range(len(nums) - 1):
+        far = max(far, i + nums[i])
+        if i == current_jump_end:
+            jumps += 1
+            current_jump_end = far
+            return jumps
+nums1=[1,3,5,8,9,2,6,7,6,8,9]
+print(minjump(nums1))
