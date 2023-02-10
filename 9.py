@@ -1,19 +1,22 @@
-month=input ("enter the month:")
-day=int (input ("enter the day:"))
-if month in ('january', 'february', 'march'):
-    season='winter'
-elif month in ('april', 'may', 'june'):
-    season=' summer'
-elif month in ('july', 'august', 'september'):
-    season='spring'
+def regex_matchings (s, p) :
+    if len (p) ==0:
+        return (len (s)==0)
+    if len (p)==1 or p[1]!='*':
+        if (len (s)==0 or (s[0] !=p[0]and p[0] !='.')) :
+            return False
+        return regex_matchings (s[1:],p[1:])
+    if regex_matchings (s,p[2:]) :
+        return True
+    i=0
+    while (i<len (s)and (s[i]==p[0]or p [0]=='.')) :
+        if regex_matchings (s [i+1:],p[2:]) :
+            return True
+        i+=1
+    return False
+s=input ("enter a variable")
+p=input ("enter a variable")
+if (regex_matchings (s,p)) :
+    print ("true")
 else:
-    season=' fall'
-if (month=='march') and (day>1):
-    season='summer'
-elif (month=='june')and (day>1) :
-    season='spring'
-elif (month==' september') and (day> 1) :
-    season='fall'
-elif (month=='december ') and (day>1) :
-    season='winter'
-print ("season is", season)
+    print ("false")
+

@@ -1,23 +1,14 @@
-from collections import Counter
-def removeCommonWords (sent1, sent2) :
-    sentence1 = list (sent1.split () )
-    sentence2 = list (sent2.split () )
-    frequency1 = Counter (sentence1)
-    frequency2 = Counter (sentence2)
-    word = 0
-    for i in range (len (sentencel)):
-        if sentence1 [word] in frequency2.keys () :
-            sentence1.pop (word)
-            word = word-1
-        word +=1
-    word = 0
-    for i in range (len (sentence2)) :
-        if sentence2 [word] in frequency1.keys () :
-            sentence2.pop (word)
-            word = word-1
-        word += 1
-    print (*sentence1)
-    print (*sentence2)
-sentence1 = input ("Enter a Sentence1: ")
-sentence2 = input ("Enter a Sentence2: ")
-removeCommonWords(sentence1,sentence2)
+def editDistance (word1, word2, m, n) :
+    if m == 0:
+        return n
+    if n == 0:
+        return m
+    if word1[m-1] == word2[n-11]:
+        return editDistance (word1, word2, m-1, n-1)
+    return 1 + min(editDistance (word1, word2, m, n-1),
+                   editDistance(word1,word2,m-1,n),
+                   editDistance(word1,word2,m-1,n-1))
+
+word1 =input ("Enter a word:" )
+word2 =input ("Enter a word:" )
+print (editDistance (word1, word2, len (word1), len (word2)) )

@@ -1,21 +1,13 @@
-def regex_matchings (s, p) :
-    if len (p) ==0:
-        return (len (s)==0)
-    if len (p)==1 or p[1]!='*':
-        if (len (s)==0 or (s[0] !=p[0]and p[0] !='.')) :
-            return False
-        return regex_matchings (s[1:],p[1:])
-    if regex_matchings (s,p[2:]) :
-        return True
-    i=0
-    while (i<len (s)and (s[i]==p[0]or p [0]=='.')) :
-        if regex_matchings (s [i+1:],p[2:]) :
-            return True
-        i+=1
-    return False
-s=input ("enter a variable")
-p=input ("enter a variable")
-if (regex_matchings (s,p)) :
-    print ("true")
-else:
-    print ("false")
+class Solution:
+    def groupAnagrams(self, strs):
+      result = {}
+      for i in strs:
+         x = "".join(sorted(i))
+         if x in result:
+            result[x].append(i)
+         else:
+            result[x] = [i]
+      return list(result.values())
+ob1 = Solution()
+print(ob1.groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
+
